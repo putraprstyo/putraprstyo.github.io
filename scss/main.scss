@@ -1,0 +1,285 @@
+// font
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prociono&display=swap');
+
+// color
+$primaryC: #C5C7E9;
+$secondC: #9296D3;
+$tertiaryC: #EE8926;
+$four: #2C2A55;
+
+// mixin
+@mixin tombol {
+    display: inline-block;
+    color: white;
+    background-color: $tertiaryC;
+    border-radius: 3em;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+}
+
+@mixin judul {
+    text-align: center;
+    font-weight: 700;
+    color: $four;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    margin-top: 2em;
+}
+
+@mixin img {
+    img{
+        border: 3px solid $tertiaryC;
+    }
+    h5{
+        color: $four;
+        font-weight: 700;
+    }
+    p{
+        font-weight: 700;
+    }
+}
+
+@mixin judul-list {
+    background-color: $tertiaryC;
+        color: $four;
+        font-weight: 700;
+}
+
+@mixin isi-list {
+    color: $four;
+    font-weight: 400;
+}
+
+@mixin boxpad {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@mixin box {
+    box-shadow: 40px 100px 100px rgba(0,0,0,.1);
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    &::before{
+        content: '';
+        background-image: url(../img/bg.png);
+        background-position: top right;
+        background-repeat: no-repeat;
+        background-size: 46vmax;
+        opacity: 9;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    @media screen and (max-width: 992px) {
+        opacity: 0.9;
+    }
+}
+
+// navbar
+.scrolling-active{
+    background-color: $secondC;
+    box-shadow: 0 3px 1rem rgba(0,0,0,.1);
+}
+.custom-nav{
+    
+    .navbar-brand {
+        span{
+            color: $four;
+            font-family: 'Prociono', sans-serif;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+    }
+
+    #navbarNav {
+        .navbar-nav{
+            .nav-item{
+                .nav-link{
+                    color: $four;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    margin-left: 1.5em;
+                    font-size: 15px;
+                    transition: .3s color ease;
+
+                    &:hover{
+                        color: darken($four, 40%);
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 992px){
+        margin-top: 1em;
+    }
+}
+
+// custom section
+.custom-section {
+    margin-top: 10em;
+    h2 {
+        font-weight: 700;
+        font-size: 4rem;
+        color: $four;
+    }
+    p{
+        font-weight: 400;
+        color: $secondC;
+    }
+    .button{
+        @include tombol;
+        border: 1px solid transparent;
+        transition: 1s ease;
+        color: $four;
+
+        &:hover {
+            color: $four;
+            border: 1px solid $four;
+            background-color: transparent;
+        }
+    }
+    @media screen and (max-width:992px) {
+        margin-top: 15em;
+        text-align: center;
+        h2, p {
+            text-shadow: 1px 1px 2px rgba($four, 1);
+            color: black;
+        }
+        
+    }
+}
+
+// about
+.about {
+    margin-top: 23em;
+    h2{
+        text-align: center;
+        font-weight: 700;
+        color: $four;
+        text-transform: uppercase;
+    }
+
+    
+    p{
+        font-size: 20px;
+    }
+    .img{
+        @include box;
+    }
+    .no-border{
+        border: 0px;
+    }
+    .sepaket{
+        margin-top: -18em;
+    }
+
+    @media screen and (max-width:992px) {
+        margin-top: 15em;
+        p{
+            margin-top: 1em;
+            text-align: justify;
+        }
+    }
+    .progress{
+        .proses{
+            background-color: $tertiaryC;
+        }
+        .prosess{
+            background-color: $four;
+        }
+    }
+}
+
+// experience
+.experience{
+    margin-top: -15em;
+    background-color: $primaryC;
+    h2{
+        @include judul;
+    }
+    .list-group{
+        @include box;
+    }
+    .jd-list{
+        @include judul-list;
+    }
+    .isi{
+        @include isi-list;
+    }
+    @media screen and (max-width:992px) {
+        margin-top: -5em;
+        .webinars{
+            margin-top: 1em;
+        }
+    }
+}
+
+// portfolio
+.portfolio{
+    margin-top: -20em;
+    h2{
+        @include judul;
+    }
+    .card-deck{
+        .card{
+            @include img;
+    }
+    .dropdown{
+        a{
+            color: $four;
+            background-color: $tertiaryC;
+            }
+        }
+    }
+    
+    @media screen and (max-width:992px) {
+        margin-top: -5em;
+        @include boxpad;
+    }
+}
+
+// certificates
+.certificates{
+    margin-top: -15em;
+    background-color: $primaryC;
+    h2{
+        @include judul;
+    }
+    .card-deck{
+        .card{
+            @include img;
+        }
+    }
+    @media screen and (max-width:992px) {
+        margin-top: -5em;
+        @include boxpad;
+    }
+}
+
+// footer
+.footer{
+    margin-top: -20em;
+    .card-body{
+        background-color: $secondC;
+        h5{
+            @include judul;
+        }
+    }
+    .card-footer{
+        background-color: $secondC;
+        p{
+            color: $four;
+            font-weight: 400;
+        }
+    }
+    @media screen and (max-width:992px) {
+        margin-top: -10em;
+    }
+}
+
